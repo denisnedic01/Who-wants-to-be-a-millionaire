@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class wwtbam {
+	public static void main(String [] args) {		
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("What is your name?\n"); 
+		String name = scanner.nextLine();
+		System.out.println("\n\nWelcome to Who Wants to be a Millionaire! As I'm sure you know, you will have to answer 5 questions correctly. \n So, " + name+ " lets begin! You have a chance to win ONE MILLION DOLLARS!!! \n\n\n\n\n");
+		  
+		
+		String q1 = "how many counties are in ireland?\n"
+					+ "(A)30\n(B)32\n(C)34\n(D)26";
+					
+		String q2 = "what is irelands most played sport?\n"
+				+ "(A)Soccer\n(B)Gaelic\n(C)Rugby\n(D)Hurling\n";
+		
+		String q3 = "in which county is Maynooth University?\n"
+				+ "(A)Dublin\n(B)Meath\n(C)Kildare\n(D)Wicklow\n";
+		
+		String q4 = "What is irelands native language?\n"
+				+ "(A)Irish\n(B)English\n(C)Welsh\n(D)Gaelic\n";
+		
+		String q5 = "How many courses are available to study in Maynooth University?\n"
+				+ "(A)80\n(B)78\n(C)97\n(D)81\n";
+		
+		class Question{
+	          String prompt;
+	          String answer;
+	          
+	          public Question(String prompt, String answer){
+	          this.prompt = prompt;
+	          this.answer = answer;
+	        }
+	 }
+		
+			Question[] questions = {
+					new Question(q1, "B"),
+					new Question(q2, "A"),
+					new Question(q3, "C"),
+					new Question(q4, "A"),
+					new Question(q5, "D")
+			};
+			takeTest(questions);
+		
+	}
+	
+	public static void takeTest(Question[] questions) {
+		int score = 0;
+		Scanner keyboardInput = new Scanner(System.in);
+		
+		for(int i = 0; i < questions.length; i++) {
+			System.out.println(questions[i].prompt);
+			String answer = keyboardInput.nextLine();
+			if(answer.equals(questions[i].answer)) {
+				score++;
+			}
+		}
+		System.out.println("you got " + score +"/"+ questions.length);
+		if(score >= questions.length) {
+			System.out.println("YOU WON ONE MILLLLLLLLLLLLION DOLLARS!!!!");
+		}
+		else {
+			System.out.println("You lost:(");
+		}
+	}
+}
